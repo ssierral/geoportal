@@ -136,7 +136,7 @@ Heron.layout = {
 					region: 'center',
 					collapsible: false,
 					border: false,
-					title: 'Geoportal Amazonas - Proudly made with <a href="http://heron-mc.org">Heron</a>',
+					title: 'Delimitación de la ronda hídrida del Río Yahuarcaca. Desarrollado usando <a href="http://heron-mc.org">Heron</a>',
 					// See Options.js
 					hropts: Heron.options.map
 				}/*,

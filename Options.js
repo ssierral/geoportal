@@ -29,6 +29,7 @@
 Ext.namespace("Heron.options.map");
 Heron.options.map.settings = {
     projection: 'EPSG:900913',
+    displayProjection: new OpenLayers.Projection("EPSG:4326"),
     units: 'm',
     // resolutions: [860.160, 430.080, 215.040, 107.520, 53.760, 26.880, 13.440, 6.720, 3.360, 1.680, 0.840, 0.420, 0.210, 0.105, 0.0525],
 //    displayProjection: new OpenLayers.Projection('EPSG:4326'),
@@ -54,12 +55,33 @@ Heron.options.map.layers = [
      */
 //	May use new NASA WMTS : http://onearth.jpl.nasa.gov/wms.cgi?request=GetCapabilities
 
-    new OpenLayers.Layer.OSM(),
+    new OpenLayers.Layer.OSM("World image"),
+
+
+    // new OpenLayers.Layer.WMS(
+    //          "World image",
+    //          'http://www2.demis.nl/wms/wms.ashx?WMS=BlueMarble',
+    //          {layers: "Earth Image", format: 'image/png', srs:'EPSG:900913'},
+    //          {singleTile: true, isBaseLayer: true, visibility: false, noLegend: true}
+    // ),
+    // new OpenLayers.Layer.WMS("Global Imagery",
+    //     "http://demo.boundlessgeo.com/geoserver/gwc/service/wms",
+    //     {layers: "nasa:bluemarble"},
+    //     {singleTile: false, isBaseLayer: true, visibility: true, noLegend: true}
+    // ),
+    // new OpenLayers.Layer.WMS(
+    //         "World schematic",
+    //         'http://www2.demis.nl/wms/wms.ashx?WMS=WorldMap',
+    //         {layers: "Countries,Borders,Coastlines", format: 'image/png'},
+    //         {singleTile: true, isBaseLayer: true, visibility: false, noLegend: true}
+    // ),
+
+
     new OpenLayers.Layer.WMS(
             "Cauce Permanente",
             'http://localhost:8080/geoserver/mocoa/wms?',
             {layers: "mocoa:CaucePermanente", transparent: true, format: 'image/png'},
-            {singleTile: true, opacity: 0.9, isBaseLayer: false, visibility: true,
+            {singleTile: true, opacity: 0.4, isBaseLayer: false, visibility: true,
                 noLegend: false}
     ),
 
@@ -67,7 +89,7 @@ Heron.options.map.layers = [
             "Ronda Hidrológica",
             'http://localhost:8080/geoserver/mocoa/wms?',
             {layers: "mocoa:Ronda_Hidrologica", transparent: true, format: 'image/png'},
-            {singleTile: true, opacity: 0.9, isBaseLayer: false, visibility: true,
+            {singleTile: true, opacity: 0.4, isBaseLayer: false, visibility: true,
                 noLegend: false}
     )
 
@@ -141,7 +163,7 @@ Ext.namespace("Heron.options.info");
 Heron.options.info.html =
           '<div class="hr-html-panel-body">' +
           '<p>Visor geográfico proyecto rios.</p>' +
-          '<p>Sebastian Sierra</p>' +
+          '<p>Por: Sebastian Sierra</p>' +
           '</div>';
 //        '<div class="hr-html-panel-body">' +
 //                '<p>This is a demo app of the <a href="http://heron-mc.org" target="_new">Heron Mapping Client</a>.</p>' +
@@ -172,21 +194,21 @@ Ext.namespace("Heron.options");
 Heron.options.bookmarks =
         [
             {
-                id: 'id_world_europe',
-                name: 'World image - Europe',
-                desc: 'Europe',
+                id: 'id_world_leticia',
+                name: 'Leticia',
+                desc: 'Leticia World Image',
                 layers: ['World image'],
-                x: 9.272,
-                y: 50.142,
-                zoom: 4
+                x: -7795688.58618,
+                y: -478483.87351,
+                zoom: 10
             },
             {
-                id: 'id_world_northamerica',
-                name: 'World image - North America',
-                desc: 'North America',
+                id: 'id_world_mocoa',
+                name: 'Mocoa',
+                desc: 'Mocoa World Image',
                 layers: ['World image'],
-                x: -96.328,
-                y: 47.461,
-                zoom: 2
+                x: -8534456.54634,
+                y: 127778.94181,
+                zoom: 10
             }
         ];
